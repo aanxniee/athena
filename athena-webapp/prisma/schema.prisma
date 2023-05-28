@@ -1,55 +1,53 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["jsonProtocol"]
 }
 
-
-
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
-model User{
-  userId String @id @default(uuid()) @unique
-  firstName String
-  lastName String
-  email String @unique
-  gradYear Int
-  yourMenteeId Mentee?
-  yourMentorId Mentor? 
+model User {
+  userId        String  @id @unique @default(uuid())
+  firstName     String
+  lastName      String
+  email         String  @unique
+  gradYear      Int?
   linkinedinUrl String? @unique
-  instagramUrl String? @unique
-  githubUrl String?
+  instagramUrl  String? @unique
+  githubUrl     String?
+  yourMenteeId  Mentee?
+  yourMentorId  Mentor?
 }
 
-model Mentor{
-mentorId String @id @default(uuid()) @unique
-user User @relation(fields: [mentorId], references: [userId])
-assignedMentees Match[]
-careerInterests String?
-hobbies String?
-skills String?
+model Mentor {
+  mentorId        String  @id @unique @default(uuid())
+  careerInterests String?
+  hobbies         String?
+  user            User    @relation(fields: [mentorId], references: [userId])
+  assignedMentees Match[]
 
-
-@@index([mentorId])
+  @@index([mentorId])
 }
+
 model Mentee {
-menteeId String @id @default(uuid()) @unique
-user User @relation(fields: [menteeId], references: [userId])
-assignedMentor Match?
-careerInterests String?
-hobbies String?
-@@index([menteeId])
+  menteeId        String  @id @unique @default(uuid())
+  careerInterests String?
+  hobbies         String?
+  user            User    @relation(fields: [menteeId], references: [userId])
+  assignedMentor  Match?
+
+  @@index([menteeId])
 }
 
-model Match{
-  
+model Match {
   mentorId String
-  mentor Mentor @relation(fields: [mentorId], references: [mentorId])
   menteeId String @unique
-  mentee Mentee @relation(fields: [menteeId], references: [menteeId])
-  @@index([mentorId,menteeId])
+  mentor   Mentor @relation(fields: [mentorId], references: [mentorId])
+  mentee   Mentee @relation(fields: [menteeId], references: [menteeId])
+
   @@id([mentorId, menteeId])
+  @@index([mentorId, menteeId])
 }
