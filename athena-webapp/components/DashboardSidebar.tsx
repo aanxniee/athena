@@ -26,40 +26,61 @@ function SidebarList() {
   return (
     <List className="p-10">
       <ListItem className="text-xl py-3">
-        <ListItemPrefix>
-          <Squares2X2Icon className="h-5 w-5 mx-3" />
-        </ListItemPrefix>
-        Dashboard
+        <Link className="flex justify-center items-center" href="/dashboard">
+          <ListItemPrefix>
+            <Squares2X2Icon className="h-5 w-5 mx-3" />
+          </ListItemPrefix>
+          Dashboard
+        </Link>
       </ListItem>
       <ListItem className="text-xl py-3">
-        <ListItemPrefix>
-          <PencilSquareIcon className="h-5 w-5 mx-3" />
-        </ListItemPrefix>
-        Questionnaire
+        <Link
+          className="flex justify-center items-center"
+          href="/dashboard/questionnaire"
+        >
+          <ListItemPrefix>
+            <PencilSquareIcon className="h-5 w-5 mx-3" />
+          </ListItemPrefix>
+          Questionnaire
+        </Link>
       </ListItem>
       <ListItem className="text-xl py-3">
-        <ListItemPrefix>
-          <UserCircleIcon className="h-5 w-5 mx-3" />
-        </ListItemPrefix>
-        Profile
+        <Link
+          className="flex justify-center items-center"
+          href="/dashboard/profile"
+        >
+          <ListItemPrefix>
+            <UserCircleIcon className="h-5 w-5 mx-3" />
+          </ListItemPrefix>
+          Profile
+        </Link>
       </ListItem>
       <ListItem className="text-xl py-3">
-        <ListItemPrefix>
-          <InboxIcon className="h-5 w-5 mx-3" />
-        </ListItemPrefix>
-        Results
+        <Link
+          href="/dashboard/results"
+          className="flex justify-center items-center"
+        >
+          <ListItemPrefix>
+            <InboxIcon className="h-5 w-5 mx-3" />
+          </ListItemPrefix>
+          Results
+        </Link>
       </ListItem>
       <ListItem className="text-xl py-3">
-        <ListItemPrefix>
-          <HeartIcon className="h-5 w-5 mx-3" />
-        </ListItemPrefix>
-        View SYDEs
+        <Link
+          href="/dashboard/view-sydes"
+          className="flex justify-center items-center"
+        >
+          <ListItemPrefix>
+            <HeartIcon className="h-5 w-5 mx-3" />
+          </ListItemPrefix>
+          View SYDEs
+        </Link>
       </ListItem>
-      <ListItem>
-        <div className="absolute md:bottom-16 bottom-[20vh]">
-          <LogoutButton />
-        </div>
-      </ListItem>
+
+      <div className="absolute md:bottom-16 bottom-[20vh]">
+        <LogoutButton />
+      </div>
     </List>
   );
 }
@@ -104,7 +125,7 @@ export default function DashboardSidebar() {
             color="blue-gray"
             className="flex flex-row items-center justify-center"
           >
-            <Link href="/">
+            <Link href="/dashboard">
               <Image
                 width="70"
                 height="70"
@@ -120,7 +141,7 @@ export default function DashboardSidebar() {
       {deviceSize && (
         <div className="top-0 absolute w-screen bg-violet-50 px-6 py-3">
           <div className="flex items-center justify-between text-violet-50 px-5 py-5">
-            <Link href="/">
+            <Link href="/dashboard">
               <Image
                 width="70"
                 height="70"

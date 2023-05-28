@@ -16,12 +16,12 @@ function NavList() {
         color="white"
         className="p-1 pr-6 text-violet-50 font-medium"
       >
-        <a
-          href="#"
+        <Link
+          href="/about-us"
           className="flex items-center hover:text-violet-200 transition-colors"
         >
           About Us
-        </a>
+        </Link>
       </Typography>
 
       <Typography
@@ -30,12 +30,12 @@ function NavList() {
         color="white"
         className="p-1 md:pr-0 md:mb-0 pr-6 mb-6 text-violet-50 font-medium"
       >
-        <a
-          href="#"
+        <Link
+          href="/sign-in"
           className="flex items-center hover:text-violet-200 transition-colors"
         >
           Login
-        </a>
+        </Link>
       </Typography>
     </ul>
   );
