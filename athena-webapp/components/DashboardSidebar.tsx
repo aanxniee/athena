@@ -12,6 +12,7 @@ import {
   PencilSquareIcon,
   UserCircleIcon,
   InboxIcon,
+  HeartIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Logo from "../public/light-logo.png";
@@ -47,6 +48,12 @@ function SidebarList() {
           <InboxIcon className="h-5 w-5 mx-3" />
         </ListItemPrefix>
         Results
+      </ListItem>
+      <ListItem className="text-xl py-3">
+        <ListItemPrefix>
+          <HeartIcon className="h-5 w-5 mx-3" />
+        </ListItemPrefix>
+        View SYDEs
       </ListItem>
       <ListItem>
         <div className="absolute md:bottom-16 bottom-[20vh]">
