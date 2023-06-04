@@ -1,8 +1,12 @@
 import "../globals.css";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -16,14 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-          rel="stylesheet"
-        />
-        <body className={inter.className}>{children}</body>
+      <html lang="en" className={poppins.className}>
+        <body>{children}</body>
       </html>
     </ClerkProvider>
   );

@@ -5,13 +5,6 @@ import Logo from "../../../public/headshots/Me.png";
 export default function Page() {
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-        rel="stylesheet"
-      />
-
       <main className="flex min-h-screen flex-col justify-between p-24">
         <div className="z-10 w-full max-w-5xl text-sm text-violet-50 my-20 lg:flex">
           <div className="flex md:flex-row flex-col">
